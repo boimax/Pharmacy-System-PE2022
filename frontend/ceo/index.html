@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO</title>
+
+    <!-- Import Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Import Icon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="./scss/CEO/main.css">
+    
+    <!-- Import External Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+    <!-- Import Internal Javascript -->
+    <script src="./js/CEO/CEO-Controller.js" defer></script>
+    <script src="./js/CEO/CEO-Revenues-Controller.js" defer></script>
+    <script src="./js/CEO/CEO-Drugs-Controller.js" defer></script>
+    <script src="./js/CEO/CEO-Branches-Controller.js" defer></script>
+    <script src="./js/CEO/CEO-Utils.js" defer></script>
+    <script src="./js/CEO/CEO-Debugging.js" defer></script>
+    
+</head>
+<body>
+    <section class="glass">
+        <div class="dashboard">
+            <div class="logo">
+                <img src="../images/medicine.png" alt="medicine logo">
+                <p>TTGD</p>
+            </div>
+
+            <div class="links">
+                <div class="link active" id="revenue">
+                    <ion-icon name="wallet-outline"></ion-icon>
+                    <h2>Revenue</h2>
+                </div>
+                <div class="link" id="drugs">
+                    <ion-icon name="medkit-outline"></ion-icon>
+                    <h2>Drugs</h2>
+                </div>
+                <div class="link" id="branches">
+                    <ion-icon name="people-outline"></ion-icon>
+                    <h2>Branches</h2>
+                </div>
+                <div class="link" id="logout">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <h2>Log-out</h2>
+                </div>
+            </div>
+
+            <div class="user">
+                <img src="../images/98239648_p0.png" alt="">
+                <h3>neko941</h3>
+                <p>CEO</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="spinner">
+                <svg
+                    id="loading-spinner"
+                    width="80"
+                    height="80"
+                    viewBox="0 0 80 80"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        id="loading-circle-large"
+                        cx="40"
+                        cy="40"
+                        r="36"
+                        stroke="#8cd2b8"
+                        stroke-width="8"
+                    />
+                </svg>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

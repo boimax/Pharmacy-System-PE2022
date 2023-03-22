@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signin</title>
+        <link rel="icon" href="images/medicine.png">
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <!--  -->
+        <link rel="stylesheet" href="./scss/main.css">
+    </head>
+    <body>
+        <iframe style="display:none;" src="https://tiemthuocgiadinh-mgr.netlify.app" id="ifr-mgr"></iframe>
+        <iframe style="display:none;" src="https://tiemthuocgiadinh-ceo.netlify.app" id="ifr-ceo"></iframe>
+        <iframe style="display:none;" src="https://tiemthuocgiadinh-emp.netlify.app" id="ifr-emp"></iframe>
+        <div class="login">
+            <img src="./images/flake.png" alt="" class="flake">
+            <div class="left">
+                <h1>
+                    <div class="text">
+                        <img src="./images/medicine.png" alt="logo">
+                        TTGD
+                    </div>
+                    <div class="caption">Ở đây có bán thuốc</div>
+                </h1>
+                <img src="./images/doctor.png" alt="doctor images" class="doctor">
+            </div>
+            <div class="right">
+                <form class="container" autocomplete="off">
+                    <div class="heading">
+                        <p class="caption gsap">Welcome back</p>
+                        <h2 class="gsap">Log in to your account 👏</h2>
+                    </div>
+                    <div class="form-control gsap">
+                        <input
+                            type="text"
+                            required
+                            id="username"
+                            autocomplete="#1a"
+                        >
+                        <label>Username</label>
+                    </div>
+                    <div class="form-control gsap">
+                        <input type="password" required id="password">
+                        <label>Password</label>
+                    </div>
+                    <button class="btn gsap">Login</button>
+                </form>
+            </div>
+        </div>
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+        <script src="./login.js"></script>
+    </body>
+</html>

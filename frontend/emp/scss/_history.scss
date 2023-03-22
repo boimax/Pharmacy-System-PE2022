@@ -1,0 +1,67 @@
+.history-table {
+    margin-top: 1rem;
+    justify-content: space-evenly;
+    height: 35rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    
+    tr {
+        th, td {
+            text-align: center;
+            padding: 0.5rem 1rem;
+            font-size: 1.5rem;
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 0.5rem 1rem;
+            font-weight: bolder;
+            background-color: rgba($color-dark, 0.8);
+            color: white;
+            height: 4.5rem;
+        }
+
+        th {
+            background-color: $color-green-lighter;
+            position: sticky;
+            top: 0; 
+        }
+    }   
+    
+    .details-button {
+        background-color: $color-green-dark;
+        color: black;
+        font-weight: bold;
+        border: none;
+        padding: 0.5rem 2rem;
+        border-radius: 1rem;
+        font-size: 1rem;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+}
+
+.overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(black, 0.5);
+    z-index: 100;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    &.show {
+        pointer-events: unset;
+        opacity: 1;
+    }
+    .modal {
+        z-index: 200;
+        width: 25rem;
+        height: 6rem;
+        background-color: white;
+    }
+}

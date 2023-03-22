@@ -1,0 +1,102 @@
+.sidebar {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	background: linear-gradient(
+		to right bottom,
+		rgba(255, 255, 255, 0.7),
+		rgba(255, 255, 255, 0.3)
+	);
+	border-radius: 2rem;
+}
+
+.logo {
+	font-weight: 900;
+	font-size: 2rem;
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.link {
+	color: rgb(141, 141, 141);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+	ion-icon {
+		font-size: 2rem;
+	}
+	padding: 1.5rem 2rem;
+	border-radius: 1.5rem;
+	background-position: 0%;
+	&.active {
+		background-color: $color-green-dark;
+		background-size: 100%;
+		color: black;
+		transition: all 0.2s ease;
+	}
+}
+
+.user {
+	text-align: center;
+	padding: 2rem 2rem 0;
+	border-radius: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	h3 {
+		font-size: 2rem;
+	}
+	p {
+		font-size: 1.2rem;
+		opacity: 0.5;
+	}
+	img {
+		width: 5rem;
+		height: 5rem;
+		border-radius: 50%;
+	}
+	& > * {
+		margin-bottom: 0.5rem;
+	}
+	button {
+		text-align: center;
+		margin-top: auto;
+		background-color: $color-green-light;
+		border: none;
+		font-family: inherit;
+		font-size: 1.5rem;
+		padding: 5px 10px;
+		display: flex;
+		align-items: center;
+		letter-spacing: 0.5px;
+		border-radius: 1rem;
+		gap: 5px;
+		font-weight: bold;
+		color: #9da591;
+		ion-icon {
+			font-size: 2rem;
+		}
+		transition: all 0.4s ease;
+		&:hover {
+			background-color: $color-green-darker;
+			transform: translateY(-0.5rem);
+			color: rgb(252, 242, 242);
+		}
+	}
+}
+
+.card {
+	border-radius: 1.5rem;
+	background-color: white;
+}

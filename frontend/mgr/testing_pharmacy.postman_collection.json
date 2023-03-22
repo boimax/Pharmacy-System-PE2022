@@ -1,0 +1,2089 @@
+{
+	"info": {
+		"_postman_id": "6434c2e7-00be-4c31-a4c5-af4a8718abfe",
+		"name": "testing pharmacy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "Sample endpoint: Returns details about a particular user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/employee?id=29926388",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "29926388",
+									"description": "(Required) ID of the user"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sample response: Details about a user by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employee?id=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-next",
+									"value": "<string>",
+									"description": "A link to the next page of responses"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"id\": \"<long>\",\n\t\"name\": \"<string>\",\n\t\"tag\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employee?id=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "creating new employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"dolor minim officia\",\n\t\"birthday\": \"1983-02-08\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employee",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully created an employee",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employee",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "user created illegal employee",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employee",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "current user does not have the right to perform this action",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employee",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employee",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "editing info of an employeee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"employeeID\": 33379646,\n\t\"name\": \"officia est\",\n\t\"birthday\": \"2011-11-14\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employee",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully edited an employee",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"employeeID\": \"<integer>\",\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employee",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "user edit a non-existent employee",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"employeeID\": \"<integer>\",\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employee",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "current user does not have the right to perform this action",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"employeeID\": \"<integer>\",\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employee",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"employeeID\": \"<integer>\",\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employee",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deleting an employeee",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/employee?employeeID=52898816",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee"
+							],
+							"query": [
+								{
+									"key": "employeeID",
+									"value": "52898816"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully delted an employee",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employee?employeeID=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "employeeID",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "user delted a non-existent employee",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employee?employeeID=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "employeeID",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "current user does not have the right to perform this action",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employee?employeeID=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "employeeID",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employee?employeeID=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "employeeID",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "drugs",
+			"item": [
+				{
+					"name": "GET endpoint for retrieving all informations on every drugs available in our stores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{remoteUrl}}/drugs?branchID=1",
+							"host": [
+								"{{remoteUrl}}"
+							],
+							"path": [
+								"drugs"
+							],
+							"query": [
+								{
+									"key": "branchID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List of all drugs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/drugs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drugs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n\t{\n\t\t\"price\": \"<float64>\",\n\t\t\"id\": \"<long>\",\n\t\t\"name\": \"<string>\",\n\t\t\"quantity\": \"<integer>\",\n\t\t\"image_url\": \"<string>\"\n\t},\n\t{\n\t\t\"price\": \"<float64>\",\n\t\t\"id\": \"<long>\",\n\t\t\"name\": \"<string>\",\n\t\t\"quantity\": \"<integer>\",\n\t\t\"image_url\": \"<string>\"\n\t}\n]"
+						},
+						{
+							"name": "some internal error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/drugs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drugs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET endpoint for retrieving all informations on every drugs available in our stores Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/drugs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drugs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List of all drugs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/drugs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drugs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n\t{\n\t\t\"price\": \"<float64>\",\n\t\t\"id\": \"<long>\",\n\t\t\"name\": \"<string>\",\n\t\t\"quantity\": \"<integer>\",\n\t\t\"image_url\": \"<string>\"\n\t},\n\t{\n\t\t\"price\": \"<float64>\",\n\t\t\"id\": \"<long>\",\n\t\t\"name\": \"<string>\",\n\t\t\"quantity\": \"<integer>\",\n\t\t\"image_url\": \"<string>\"\n\t}\n]"
+						},
+						{
+							"name": "some internal error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/drugs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drugs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST endpoint for filling the stock of a company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"branchID\":1\n\t\"drugID\": 2,\n\t\"quantity\": 3000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/drugs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drugs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "request to refill successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"drugID\": \"<integer>\",\n\t\"quantity\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/drugs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drugs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "current user does not have the right to perform this action",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"drugID\": \"<integer>\",\n\t\"quantity\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/drugs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drugs"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"drugID\": \"<integer>\",\n\t\"quantity\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/drugs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drugs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "branch",
+			"item": [
+				{
+					"name": "GET endpoint for retrieving all name and ID of a branch",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/branch",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"branch"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user is authorized to get all info of branches",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/branch",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"branch"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n\t{\n\t\t\"branchID\": \"<number>\",\n\t\t\"name\": \"<string>\"\n\t},\n\t{\n\t\t\"branchID\": \"<number>\",\n\t\t\"name\": \"<string>\"\n\t}\n]"
+						}
+					]
+				},
+				{
+					"name": "Get all information on a branch",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/branch/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"branch",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1693166",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET endpoint for retrieving all name and ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/branch/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"branch",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1693166",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n\t{\n\t\t\"branchID\": \"<number>\",\n\t\t\"name\": \"<string>\"\n\t},\n\t{\n\t\t\"branchID\": \"<number>\",\n\t\t\"name\": \"<string>\"\n\t}\n]"
+						},
+						{
+							"name": "a branch with that ID cannot be found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/branch/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"branch",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1693166",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "current user does not have the right to perform this action",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/branch/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"branch",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1693166",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Logging into the company",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\": \"1\",\n\"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{remoteUrl}}/login",
+					"host": [
+						"{{remoteUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login successfully and redirect to homepage",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"<string>\",\n\t\"password\": \"<password>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"token\": \"<string>\"\n}"
+				},
+				{
+					"name": "Invalid login, stay in login page",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"<string>\",\n\t\"password\": \"<password>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "\"<string>\""
+				},
+				{
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"<string>\",\n\t\"password\": \"<password>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "retrieve supposedly financial report of the company",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/revenue",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"revenue"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "user get authorized to get all the current revenues",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/revenue",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"revenue"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n\t{\n\t\t\"quarter\": \"<string>\",\n\t\t\"value\": \"<float64>\"\n\t},\n\t{\n\t\t\"quarter\": \"<string>\",\n\t\t\"value\": \"<float64>\"\n\t}\n]"
+				},
+				{
+					"name": "current user does not have the right to perform this action",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/revenue",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"revenue"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all information on a branch",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/drug/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"drug",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1693166",
+							"description": "(Required) "
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET endpoint for retrieving all info on a specific drug",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/drug/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drug",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1693166",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"price\": \"<float64>\",\n\t\"id\": \"<long>\",\n\t\"name\": \"<string>\",\n\t\"quantity\": \"<integer>\",\n\t\"image_url\": \"<string>\"\n}"
+				},
+				{
+					"name": "drug information cannot be found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/drug/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drug",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1693166",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+				},
+				{
+					"name": "current user does not have the right to perform this action",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/drug/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drug",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1693166",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Employee send the bill information to the server",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"employeeID\": -63081137.642116405,\n\t\"drugList\": [\n\t\t{\n\t\t\t\"drugID\": 28518440,\n\t\t\t\"quantity\": 56237735.014805004\n\t\t},\n\t\t{\n\t\t\t\"drugID\": 39417043,\n\t\t\t\"quantity\": 24512665.61843043\n\t\t}\n\t],\n\t\"branchID\": 77556861\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/bill",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"bill"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully add the bill",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"employeeID\": \"<number>\",\n\t\"drugList\": [\n\t\t{\n\t\t\t\"drugID\": \"<integer>\",\n\t\t\t\"quantity\": \"<number>\"\n\t\t},\n\t\t{\n\t\t\t\"drugID\": \"<integer>\",\n\t\t\t\"quantity\": \"<number>\"\n\t\t}\n\t],\n\t\"branchID\": \"<integer>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bill",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bill"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "The stock is not available or something",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"employeeID\": \"<number>\",\n\t\"drugList\": [\n\t\t{\n\t\t\t\"drugID\": \"<integer>\",\n\t\t\t\"quantity\": \"<number>\"\n\t\t},\n\t\t{\n\t\t\t\"drugID\": \"<integer>\",\n\t\t\t\"quantity\": \"<number>\"\n\t\t}\n\t],\n\t\"branchID\": \"<integer>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bill",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bill"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+				},
+				{
+					"name": "current user does not have the right to perform this action",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"employeeID\": \"<number>\",\n\t\"drugList\": [\n\t\t{\n\t\t\t\"drugID\": \"<integer>\",\n\t\t\t\"quantity\": \"<number>\"\n\t\t},\n\t\t{\n\t\t\t\"drugID\": \"<integer>\",\n\t\t\t\"quantity\": \"<number>\"\n\t\t}\n\t],\n\t\"branchID\": \"<integer>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bill",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bill"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all information on a manager",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/manager/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"manager",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1693166",
+							"description": "(Required) "
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET endpoint for retrieving manager name,birthday,info",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/manager/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"manager",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1693166",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"managerID\": \"<number>\",\n\t\"name\": \"<string>\",\n\t\"birthday\": \"<date>\"\n}"
+				},
+				{
+					"name": "a manager with that ID cannot be found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/manager/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"manager",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1693166",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+				},
+				{
+					"name": "current user does not have the right to perform this action",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/manager/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"manager",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1693166",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\t\"code\": \"<integer>\",\n\t\"message\": \"<string>\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrlx",
+			"value": "https://64132c25-3ebf-4585-9d24-43ef950da3b8.mock.pstmn.io",
+			"type": "string"
+		},
+		{
+			"key": "remoteUrl",
+			"value": "https://oyster-app-yn36n.ondigitalocean.app",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjEiLCJpYXQiOjE2NTM5Njk2MTYsImV4cCI6MTY1NDA1NjAxNn0.4jvQbBwmLjL3ZNuy32aghQepJoCcgg1EQtf9D888j4Q"
+		},
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,86 @@
+.drugs-main { 
+	display: grid;
+	height: 43rem;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: min-content;
+	overflow-y: auto;
+	gap: 3rem;
+	padding: 1rem;
+	.drug {
+		border-radius: 1rem;
+		border: 1px solid #ccc;
+		padding: 1rem;
+		display: flex;
+		gap: 5px;
+		flex-direction: column;
+		align-items: center;
+		img {
+			width: 12rem;
+			height: 12rem;
+		}
+		button {
+			margin-top: 2rem;
+			border: none;
+			padding: 5px 10px;
+			border-radius: 1rem;
+			color: black;
+			background-image: linear-gradient(to right, $color-red-dark, $color-orange-light);
+			color: black;
+			text-transform: lowercase;
+			letter-spacing: 0.5px;
+			transition: all ease 0.2s;
+			&:hover {
+				box-shadow: 0rem 0rem 1rem 1rem rgba($color-red-dark, 0.3);
+				background-color: red;
+				transform: translate(0, -5px);
+			}
+		}
+		.drug__title {
+			font-size: 1.8rem;
+		}
+		.drug__price {
+			font-size: 1.4rem;
+		}
+	}
+}
+
+.overlay {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(black, 0.5);
+	z-index: 100;
+	left: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	opacity: 0;
+	&.show {
+		pointer-events: unset;
+		opacity: 1;
+	}
+	.modal {
+		z-index: 200;
+		width: 25rem;
+		height: 6rem;
+		background-color: white;
+		border-radius: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		font-size: 1.2rem;
+		button {
+			margin-left: 1rem;
+			border: none;
+			background-color: $color-red-dark;
+			padding: 5px;
+			display: flex;
+			align-items: center;
+			border-radius: 50%;
+			color: white;
+		}
+	}
+}

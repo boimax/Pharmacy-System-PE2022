@@ -1,0 +1,18 @@
+{
+    "eid" : 4,
+    "ename" : "Random Kid",
+    "mail" : "freelabor@gmail.com",
+    "erole" : "EMP",
+    "bid" : 1,
+    "bname" : "Quận 1",
+    "addr" : "Sài Gòn",
+    "mgrid" : 2,
+    "pass" : "$argon2i$v=19$m=4096,t=3,p=1$EsdZJT4nq0SnDZqVCzom9A$VAlLXbs0B+tRRstwmTZxlrcldLdLcMr/0ymwnMDDyow",
+    "url" : "www.google.com",
+    "did" : 1,
+    "month" : 1,
+    "year" : 2021,
+    "qnt" : 1000,
+    "iid" : 1,
+    "dmy" : "2001-01-31"
+}

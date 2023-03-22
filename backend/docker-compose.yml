@@ -1,0 +1,28 @@
+version: "2.1"  # optional since v1.27.0
+services:
+  api-backend:
+    build: .
+    environment:
+      - PORT=3000
+      - DB_HOST=database
+      - DB_USER=postgres
+      - DB_PASSWORD=admin
+      - DB_NAME=pharmacy
+      - DB_PORT=5432
+    command: "npm run start_dev"
+    ports:
+      - "3000:3000"
+    # volumes:
+    #   - .:/app
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=pharmacy
+    volumes:
+      - ./init_db:/docker-entrypoint-initdb.d
+      # - ../db:/var/lib/postgresql/data
+    ports:
+      - "6789:5432" # HOST_PORT:CONTAINER_PORT, the container can communicate via container port, and the outsider can 
+      # communicate via host port
+      

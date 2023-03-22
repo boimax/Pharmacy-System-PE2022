@@ -1,0 +1,78 @@
+.dashboard {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	background: linear-gradient(
+		to right bottom,
+		rgba(255, 255, 255, 0.7),
+		rgba(255, 255, 255, 0.3)
+	);
+	border-radius: 2rem;
+
+    .logo {
+        font-weight: 900;
+        font-size: 2rem;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+    }
+
+	.links {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		.link {
+			color: rgb(141, 141, 141);
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 1rem;
+			ion-icon {
+				font-size: 2rem;
+			}
+			padding: 1.5rem 2rem;
+			border-radius: 1.5rem;
+			background-position: 0%;
+			&.active {
+				background-color: $color-green-dark;
+				background-size: 100%;
+				color: black;
+				transition: all 0.2s ease;
+				transform: translateX(25px);
+				
+			}
+		
+			&:hover {
+				background-color: $color-green-dark;
+				box-shadow: 0 0 10px $color-green-dark, 0 0 40px $color-green-dark, 0 0 80px $color-green-dark;
+				transition: all 300ms ease;
+				transform: scale(1.1);
+			}
+		}
+	}
+	.user {
+		text-align: center;
+		padding: 2rem;
+		border-radius: 2rem;
+	
+		h3 {
+			font-size: 2rem;
+		}
+		p {
+			font-size: 1.2rem;
+			opacity: 0.5;
+		}
+		img {
+			width: 5rem;
+			height: 5rem;
+			border-radius: 50%;
+		}
+		& > * {
+			margin-bottom: 0.5rem;
+		}
+	}	
+}
+

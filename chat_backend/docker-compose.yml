@@ -1,0 +1,8 @@
+version: "2.1"  # optional since v1.27.0
+services:
+  chat-backend:
+    build: .
+    command: "npm start"
+    ports:
+      - "3000"
+# no new volume here

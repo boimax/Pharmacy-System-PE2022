@@ -1,0 +1,43 @@
+.content {
+	&__revenues {
+		display: flex;
+		gap: 3rem;
+	}
+	&__revenue {
+		color: white;
+		flex: 1;
+		padding: 2rem;
+		font-size: 2rem;
+		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+		h3 {
+			font-size: 3rem;
+			letter-spacing: 1px;
+		}
+		p {
+			margin-bottom: 1rem;
+			font-size: 1.5rem;
+			letter-spacing: 0.5px;
+		}
+		&.income {
+			background-image: linear-gradient(to right, $color-red-dark, $color-orange-light);
+			box-shadow: rgba($color-red-light, 0.4) 5px 8px 24px;
+		}
+		&.last-month {
+			background-image: linear-gradient(to right, #11998e, #a8ff78);
+			box-shadow: rgba(#11998e, 0.4) 5px 8px 24px;
+		}
+		&.today {
+			background-image: linear-gradient(
+				to right,
+				$color-purple-dark,
+				$color-purple-light,
+				$color-purple-lighter
+			);
+			box-shadow: rgba($color-purple-light, 0.4) 5px 8px 24px;
+		}
+	}
+	.chart {
+		width: 100%;
+		margin-top: 4rem;
+	}
+}

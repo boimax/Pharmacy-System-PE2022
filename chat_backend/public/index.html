@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylee.css">
+    <title>Web-chat</title>
+</head>
+<body>
+    <div class="split left">
+        <div class="client">
+            <img src="images/chion-bieton.PNG" alt="avatar">
+            <div class="client-info">
+                <h2 id="mainuser-name">Sang</h2>
+                <!-- <p id="user-status">online</p> -->
+            </div>
+        </div>
+
+        <div class="allignLeft">
+            <div class="search-wrapper">
+                <input type="search" id="search" data-search placeholder="Find a user">
+            </div>
+            <div class="user-cards" data-user-cards-container></div>
+            <template data-user-template>
+                <div class="card">
+                    <img class="avatar-conv" src="images/chion-bieton.PNG" alt="icon-avatar">
+                    <div class="client-info-left">
+                        <div class="header" data-header></div>
+                        <div class="body" data-body></div>
+                    </div>
+                </div>
+            </template>
+            <div class="conversationBox"></div>
+        </div>
+        
+    </div>
+    <div class="split right">
+        <!-- client -->
+        <div class="client">
+            <!-- <img id="user-avatar" alt="user-avatar"> -->
+            <div class="client-info">
+                <h2 id="user-name"></h2>
+                <p id="user-status"></p>
+            </div>
+        </div>
+        <!--main chat section-->
+        <div class="chats">
+        </div>
+        <div class="chat-input">
+            <input id="chat-mes" type="text" placeholder="Enter message"/>
+            <button id="chat-btn" class="send-btn">
+                <img src="images/download.png" alt="send-btn">
+            </button>
+        </div>>
+        
+    </div>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" 
+    integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer">
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    <!--<script src="/search.js"></script>-->
+</html>

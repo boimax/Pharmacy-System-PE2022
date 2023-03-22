@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TTGD - Employee</title>
+        <link rel="icon" href="images/medicine.png">
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&family=Roboto:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+        <!--  -->
+        <link rel="stylesheet" href="./scss/main.css">
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script> 
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+        <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+            integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+            crossorigin="anonymous" defer></script>
+            <script src="./js/order.js" defer></script>
+            <script src="./js/history.js" defer></script>
+            <script src="./js/stock.js" defer></script>
+            <script src="./js/chat.js" defer></script>
+            <script src="./script.js" defer></script>
+    </head>
+    <body>
+        <section class="glass">
+            <div class="dashboard">
+                <div class="logo">
+                    <img src="./images/medicine.png" alt="medicine logo">
+                    <h1>TTGD</h1>
+                </div>
+                <div class="links">
+                    
+                    <div class="link active" id="order">
+                        <img src="./images/order.png" alt="">
+                        <h2>Order</h2>
+                    </div>
+                             
+                    <!-- <div class="link" id="history">
+                        <img src="./images/history.png" alt="">
+                        <h2>History</h2>
+                    </div> -->
+
+                    <div class="link" id="stock">
+                        <img src="./images/stock.png" alt="">
+                        <h2>Stock</h2>
+                    </div>
+
+                    <a class="link" id="chat" href="./html/chat/chat.html" target="_blank" onclick="return sendUserInfoToChat()">
+                        <img src="./images/chat.png" alt="">
+                        <h2>Chat</h2>
+                    </a>
+
+                    <div class="link" id="logout" onclick="logoutHandler()">
+                        <img src="./images/logout.png" alt="">
+                        <h2>Logout</h2>
+                    </div>
+                </div>
+                <div class="user">
+                    <img src="https://cdnb.artstation.com/p/assets/images/images/050/072/383/large/haruko-04.jpg" alt="avatar">
+                    <div class="user-info">
+                        <h1>Charlie</h1>
+                        <p>Employee</p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <!-- <div class="header">
+                    <h2>HISTORY</h2>
+                    <div class="branch-details">
+                        <ion-icon name="storefront-outline"></ion-icon>
+                        <div class="info">
+                            <h3>Branch name</h3>
+                            <p>Address, street</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-table">
+                    <table style="width:100%;">
+                        <tr class="history-table-header">
+                            <th style="width: 20%;">Date</th>
+                            <th style="width: 20%;">Branch ID</th>
+                            <th style="width: 20%;">Employee ID</th>
+                            <th style="width: 20%;">Price</th>
+                            <th style="width: 20%;">Details</th>
+                        </tr>
+                        <tr class="history-table-row">
+                            <td>2020-01-01</td>
+                            <td>12345</td>
+                            <td>16000</td>
+                            <td>100,000,000</td>
+                            <td>
+                                <button class="details-button">
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="overlay">
+                    
+                </div> -->
+                
+                
+                <div class="spinner">                
+                    <svg
+                        id="loading-spinner"
+                        width="80"
+                        height="80"
+                        viewBox="0 0 80 80"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            id="loading-circle-large"
+                            cx="40"
+                            cy="40"
+                            r="36"
+                            stroke="#8cd2b8"
+                            stroke-width="8"
+                        />
+                    </svg>
+                </div>
+
+                <form action=""></form>
+
+            </div> 
+        </section>
+    </body>
+</html>

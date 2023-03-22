@@ -1,0 +1,778 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+}
+
+input {
+  line-height: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+section[id] {
+  scroll-margin-top: 3rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.spinner {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+#loading-spinner {
+  display: block;
+  margin: 0 auto;
+  -webkit-animation: loading-spinner-spin 2s linear infinite;
+          animation: loading-spinner-spin 2s linear infinite;
+  will-change: transform;
+}
+
+@-webkit-keyframes loading-spinner-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-spinner-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+#loading-circle-large {
+  stroke-dasharray: 210;
+  stroke-dashoffset: 210;
+  stroke-linecap: round;
+  -webkit-animation: loading-spinner-large 1.7s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+          animation: loading-spinner-large 1.7s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  will-change: stroke-dashoffset;
+}
+
+@-webkit-keyframes loading-spinner-large {
+  0% {
+    stroke-dashoffset: 190;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  49.99% {
+    stroke-dashoffset: 0;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  50% {
+    stroke-dashoffset: 0;
+    -webkit-transform: scaleY(-1) rotate(25deg);
+            transform: scaleY(-1) rotate(25deg);
+  }
+  100% {
+    stroke-dashoffset: 190;
+    -webkit-transform: scaleY(-1) rotate(-32deg);
+            transform: scaleY(-1) rotate(-32deg);
+  }
+}
+
+@keyframes loading-spinner-large {
+  0% {
+    stroke-dashoffset: 190;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  49.99% {
+    stroke-dashoffset: 0;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  50% {
+    stroke-dashoffset: 0;
+    -webkit-transform: scaleY(-1) rotate(25deg);
+            transform: scaleY(-1) rotate(25deg);
+  }
+  100% {
+    stroke-dashoffset: 190;
+    -webkit-transform: scaleY(-1) rotate(-32deg);
+            transform: scaleY(-1) rotate(-32deg);
+  }
+}
+
+.dashboard {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  border-radius: 2rem;
+}
+
+.dashboard .logo {
+  font-weight: 900;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard .user {
+  text-align: center;
+  border-radius: 2rem;
+}
+
+.dashboard .user img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.dashboard .user .user-info {
+  margin-top: 1.25rem;
+}
+
+.dashboard .user .user-info h1 {
+  font-size: 1.5em;
+}
+
+.dashboard .user .user-info p {
+  font-size: 1em;
+  opacity: 0.5;
+  margin-top: 0.5rem;
+}
+
+.dashboard .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.dashboard .link {
+  height: 4.5rem;
+  width: 12rem;
+  color: #8d8d8d;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem;
+  background-position: 0%;
+}
+
+.dashboard .link img {
+  height: 2.5em;
+  width: 2.5em;
+}
+
+.dashboard .link.active {
+  background-color: #b5ead7;
+  background-size: 100%;
+  color: black;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.order {
+  background-color: #b5ead7;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+}
+
+.order .fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1rem;
+  padding: 1rem 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.order .fields label {
+  background-color: #d9f5e3;
+  padding: 1rem 2rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1.85rem;
+}
+
+.order .fields input, .order .fields select, .order .fields option {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.75rem;
+  border-radius: 1rem;
+  font-weight: bolder;
+  border: none;
+  background-color: aliceblue;
+  text-align: center;
+}
+
+.order #drugName {
+  width: 20rem;
+  font-size: 1.75rem;
+  padding: 0.25rem 0.75rem;
+  border: none;
+  text-align: center;
+}
+
+.order #drugName:focus ~ #myUL {
+  opacity: 1;
+}
+
+.order #myUL {
+  opacity: 0;
+  width: 20rem;
+  list-style-type: none;
+  position: absolute;
+  top: 5.25rem;
+  left: 19.5rem;
+  z-index: 200;
+  height: 20rem;
+  background-color: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.order #myUL li {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  /* Prevent double borders */
+  background-color: aliceblue;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  opacity: 1;
+}
+
+.order #myUL li:hover {
+  background-color: #eee;
+}
+
+.order .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  margin-top: 0.5rem;
+}
+
+.order .buttons #addmedicine-button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  font-weight: bolder;
+  background-color: rgba(45, 45, 45, 0.8);
+  color: #b5ead7;
+  border: none;
+}
+
+.drug-table {
+  margin-top: 1rem;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 22.5rem;
+  overflow-x: hidden;
+}
+
+.drug-table tr input {
+  background: transparent;
+  border: none;
+  font-size: 1.75rem;
+  color: white;
+  text-align: center;
+  width: 50%;
+}
+
+.drug-table tr td {
+  padding: 0.5rem 1rem;
+  font-weight: bolder;
+  background-color: rgba(45, 45, 45, 0.8);
+  color: white;
+}
+
+.drug-table tr th {
+  background-color: #d9f5e3;
+}
+
+.drug-table tr th, .drug-table tr td {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border: 1px solid black;
+}
+
+.drug-table button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  width: 25px;
+  height: 25px;
+}
+
+.confirm-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.confirm-section .price-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.confirm-section .price-section h3 {
+  margin-right: 1rem;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #8cd2b8;
+}
+
+.confirm-section .price-section p {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #2d2d2d;
+}
+
+.confirm-section button {
+  padding: 0.5rem 1rem;
+  font-size: 1.75rem;
+  border-radius: 1rem;
+  font-weight: bolder;
+  background-color: rgba(45, 45, 45, 0.9);
+  color: #b5ead7;
+  border: none;
+}
+
+.content {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  padding: 3rem 5rem 1rem;
+}
+
+.content .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3rem;
+}
+
+.content .header .branch-details {
+  background-color: #b5ead7;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  font-size: 1.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.content .header .branch-details ion-icon {
+  font-size: 3rem;
+}
+
+.content h2 {
+  font-size: 3rem;
+  letter-spacing: 0.5px;
+  color: transparent;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#11998e), to(#8cd2b8));
+  background-image: linear-gradient(#11998e, #8cd2b8);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.drugs-main {
+  display: -ms-grid;
+  display: grid;
+  height: 43rem;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: min-content;
+      grid-template-rows: -webkit-min-content;
+      grid-template-rows: min-content;
+  overflow-y: auto;
+  gap: 3rem;
+  padding: 1rem;
+}
+
+.drugs-main .drug {
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.drugs-main .drug img {
+  width: 12rem;
+  height: 12rem;
+}
+
+.drugs-main .drug button {
+  margin-top: 2rem;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 1rem;
+  color: black;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ff9aa2), to(#ffe5c7));
+  background-image: linear-gradient(to right, #ff9aa2, #ffe5c7);
+  color: black;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+
+.drugs-main .drug button:hover {
+  -webkit-box-shadow: 0rem 0rem 1rem 1rem rgba(255, 154, 162, 0.3);
+          box-shadow: 0rem 0rem 1rem 1rem rgba(255, 154, 162, 0.3);
+  background-color: red;
+  -webkit-transform: translate(0, -5px);
+          transform: translate(0, -5px);
+}
+
+.drugs-main .drug .drug__title {
+  font-size: 1.8rem;
+}
+
+.drugs-main .drug .drug__price {
+  font-size: 1.4rem;
+}
+
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.overlay.show {
+  pointer-events: unset;
+  opacity: 1;
+}
+
+.overlay .modal {
+  z-index: 200;
+  width: 25rem;
+  height: 6rem;
+  background-color: white;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5px;
+  font-size: 1.2rem;
+}
+
+.overlay .modal button {
+  margin-left: 1rem;
+  border: none;
+  background-color: #ff9aa2;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  color: white;
+}
+
+.history-table {
+  margin-top: 1rem;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 35rem;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.history-table tr th, .history-table tr td {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border: 1px solid black;
+}
+
+.history-table tr td {
+  padding: 0.5rem 1rem;
+  font-weight: bolder;
+  background-color: rgba(45, 45, 45, 0.8);
+  color: white;
+  height: 4.5rem;
+}
+
+.history-table tr th {
+  background-color: #d9f5e3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.history-table .details-button {
+  background-color: #b5ead7;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.overlay.show {
+  pointer-events: unset;
+  opacity: 1;
+}
+
+.overlay .modal {
+  z-index: 200;
+  width: 25rem;
+  height: 6rem;
+  background-color: white;
+}
+
+body {
+  min-height: 100vh;
+  background-image: -webkit-gradient(linear, right top, left top, from(#b5ead7), to(#e2f0cb));
+  background-image: linear-gradient(to left, #b5ead7, #e2f0cb);
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.glass {
+  background: white;
+  min-height: 90vh;
+  width: 80%;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  border-radius: 2rem;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(0.5em);
+          backdrop-filter: blur(0.5em);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* width */
+  /* Track */
+  /* Handle */
+}
+
+.glass ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.glass ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px grey;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 1rem;
+}
+
+.glass ::-webkit-scrollbar-thumb {
+  background-color: #636060;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=main.css.map */

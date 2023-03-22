@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TTGD-Manager</title>
+        <link rel="shortcut icon" href="#">
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+        <!--  -->
+        <link rel="stylesheet" href="./scss/main.css">
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" defer></script>
+        <script type="text/javascript" src="https://unpkg.com/imagekit-javascript/dist/imagekit.min.js"></script>
+        <script src="./js/staff.js"></script>
+        <script src="./js/revenue.js" defer></script>
+        <script src="./js/drugs.js" defer></script>
+        <script src="./script.js" defer></script>
+    </head>
+    <body>
+        <section class="glass">
+            <div class="sidebar">
+                <div class="logo">
+                    <img src="./images/medicine.png" alt="medicine logo">
+                    <p>PROPARY</p>
+                </div>
+                <div class="links">
+                    <div class="link active" id="revenue">
+                        <ion-icon name="wallet-outline"></ion-icon>
+                        <h2>Revenue</h2>
+                    </div>
+                    <div class="link" id="staff">
+                        <ion-icon name="people-outline"></ion-icon>
+                        <h2>Staff</h2>
+                    </div>
+                    <div class="link" id="drugs">
+                        <ion-icon name="medkit-outline"></ion-icon>
+                        <h2>Drugs</h2>
+                    </div>
+                    <a
+                        class="link"
+                        id="chat"
+                        href="./html/chat/chat.html"
+                        target="_blank"
+                        onclick="return sendUserInfoToChat()"
+                    >
+                        <ion-icon name="chatbox-outline"></ion-icon>
+                        <h2>Chat</h2>
+                    </a>
+                </div>
+                <div class="user">
+                    <img src="./images/duck-img.jpg" alt="">
+                    <h3>Duck</h3>
+                    <p>Branch Manager</p>
+                    <button class="logout" onclick="logoutHandler()">
+                        <ion-icon name="exit-outline"></ion-icon>
+                        Logout
+                    </button>
+                </div>
+            </div>
+            <div class="card content">
+                <div class="spinner">
+                    <svg
+                        id="loading-spinner"
+                        width="80"
+                        height="80"
+                        viewBox="0 0 80 80"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            id="loading-circle-large"
+                            cx="40"
+                            cy="40"
+                            r="36"
+                            stroke="#8cd2b8"
+                            stroke-width="8"
+                        />
+                    </svg>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

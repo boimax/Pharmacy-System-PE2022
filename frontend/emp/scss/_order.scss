@@ -1,0 +1,181 @@
+.order {
+    
+    background-color: $color-green-dark;
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+    
+    .fields {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        border-radius: 1rem;
+        padding: 1rem 1rem;
+        justify-content: space-between;
+
+        label {
+            background-color: $color-green-lighter;
+            padding: 1rem 2rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            width: fit-content;
+            font-size: 1.85rem;
+            
+        }
+    
+        input, select, option {
+            padding: 0.25rem 0.75rem;
+            font-size: 1.75rem;
+            border-radius: 1rem;
+            font-weight: bolder;
+            border: none;
+            background-color: aliceblue;
+            text-align: center;
+        }
+    }
+
+    #drugName {
+        width: 20rem;
+        font-size: 1.75rem;
+        padding: 0.25rem 0.75rem;
+        border: none;
+        text-align: center;
+
+        &:focus ~ #myUL {
+            opacity: 1;
+        }
+    }
+        
+    #myUL {
+        opacity: 0;
+        width: 20rem;
+        list-style-type: none;
+        position: absolute;
+        top: 5.25rem;
+        left: 19.5rem;
+        z-index: 200;
+        height: 20rem;
+        background-color: white;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+        
+    #myUL li {
+        border: 1px solid #ddd;
+        margin-top: -1px; /* Prevent double borders */
+        background-color: aliceblue;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block;
+        opacity: 1;
+    }
+    
+    #myUL li:hover {
+        background-color: #eee;
+    }    
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        margin-top: 0.5rem;
+        
+        #addmedicine-button {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            font-size: 1.5rem;
+            border-radius: 1rem;
+            font-weight: bolder;
+            background-color: rgba($color-dark, 0.8);
+            color: $color-green-dark;
+            border: none;
+        }
+    }   
+}
+
+.drug-table {
+    margin-top: 1rem;
+    justify-content: space-evenly;
+    height: 22.5rem;
+    overflow-x: hidden;
+    
+    tr {
+        input {
+                background: transparent;
+                border: none;
+                font-size: 1.75rem;
+                color: white;
+                text-align: center;
+                width: 50%;
+            }
+        td {
+            padding: 0.5rem 1rem;
+            font-weight: bolder;
+            background-color: rgba($color-dark, 0.8);
+            color: white;
+        }
+
+        th {
+            background-color: $color-green-lighter;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 0.5rem 1rem;
+            font-size: 1.5rem;
+            border: 1px solid black;
+        }
+    }   
+
+    button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        width: 25px;
+        height: 25px;
+    }
+    
+}
+  
+.confirm-section { 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    .price-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+
+        h3 {
+            margin-right: 1rem;
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: $color-green-darker;
+        }
+
+        p {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: $color-dark;
+        }
+    }
+    
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 1.75rem;
+        border-radius: 1rem;
+        font-weight: bolder;
+        background-color: rgba($color-dark, 0.9);
+        color: $color-green-dark;
+        border: none;
+    }
+}
+

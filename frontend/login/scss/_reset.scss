@@ -1,0 +1,42 @@
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+input,
+textarea,
+select,
+button {
+	outline: none;
+}
+input {
+	line-height: normal;
+}
+
+button {
+	cursor: pointer;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+img {
+	display: inline-block;
+	max-width: 100%;
+}
+
+ul {
+	list-style: none;
+}
+
+section[id] {
+	scroll-margin-top: 3rem;
+}

@@ -1,0 +1,18 @@
+version: "2.1"  # optional since v1.27.0
+services:
+  api-backend:
+    extends:
+      file: backend/docker-compose.yml
+      service: api-backend
+  database:
+    extends:
+      file: backend/docker-compose.yml
+      service: database
+  chat-backend:
+    extends:
+      file: chat_backend/docker-compose.yml
+      service: chat-backend
+  frontend:
+    extends:
+      file: frontend/docker-compose.yml
+      service: frontend
